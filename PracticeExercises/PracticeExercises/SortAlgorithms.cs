@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace PracticeExercises
 {
+    /// <summary>
+    /// Sort algorithms.
+    /// </summary>
     public class SortAlgorithms
     {
+        /// <summary>
+        /// Bubble sort algorithm O(n^2)
+        /// </summary>
+        /// <param name="list"></param>
         public static void bubleSort(List<int> list)
         {
             bool changed;
