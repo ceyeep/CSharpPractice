@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeExercises;
+using System;
 using System.Collections.Generic;
 
 namespace UnitTests
@@ -13,8 +14,27 @@ namespace UnitTests
         [TestMethod]
         public void TestBubbleSort()
         {
-            SortAlgorithms.bubleSort(originalList);
-            CollectionAssert.Equals(sortedList, originalList);
+            originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
+            SortAlgorithms.bubbleSort(originalList);
+            CollectionAssert.AreEqual(sortedList, originalList);
+
+        }
+
+        [TestMethod]
+        public void TestInsertionSort()
+        {
+            originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
+            originalList = SortAlgorithms.insertionSort(originalList);
+            CollectionAssert.AreEqual(sortedList, originalList);
+
+        }
+
+        [TestMethod]
+        public void TestInsertionSortInPlace()
+        {
+            originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
+            SortAlgorithms.insertionSortInPlace(originalList);
+            CollectionAssert.AreEqual(sortedList, originalList);
 
         }
     }

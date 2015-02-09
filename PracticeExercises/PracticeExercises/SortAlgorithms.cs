@@ -15,7 +15,7 @@ namespace PracticeExercises
         /// Bubble sort algorithm O(n^2)
         /// </summary>
         /// <param name="list"></param>
-        public static void bubleSort(List<int> list)
+        public static void bubbleSort(List<int> list)
         {
             bool changed;
             do
@@ -33,6 +33,59 @@ namespace PracticeExercises
                 }
             }
             while (changed);
+        }
+
+        /// <summary>
+        /// Insertion sort O(n^2) space complexity O(n)
+        /// </summary>
+        /// <param name="originalList"></param>
+        public static List<int> insertionSort(List<int> originalList)
+        {
+            List<int> sortedList = new List<int>();
+
+            if (originalList.Count() > 1)
+            {
+                sortedList.Insert(0, originalList[0]);
+
+                for (int i = 1; i < originalList.Count(); i++)
+                {
+
+                    for (int j = 0; j < sortedList.Count(); j++)
+                    {
+                        if(originalList[i] < sortedList[j])
+                        {
+                            sortedList.Insert(j, originalList[i]);
+                            break;
+                        }
+                    }
+                }
+                return sortedList;
+            }
+            return originalList;
+        }
+
+        /// <summary>
+        /// Insertion sort in place O(n^2)
+        /// </summary>
+        /// <param name="list"></param>
+        public static void insertionSortInPlace(List<int> list)
+        {
+
+            if (list.Count() > 1)
+            {
+                for (int i = 1; i < list.Count(); i++)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (list[i] < list[j])
+                        {
+                            list.Insert(j, list[i]);
+                            list.RemoveAt(i + 1);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }
