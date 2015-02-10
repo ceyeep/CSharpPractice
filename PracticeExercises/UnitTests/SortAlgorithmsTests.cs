@@ -15,7 +15,7 @@ namespace UnitTests
         public void TestBubbleSort()
         {
             originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
-            SortAlgorithms.bubbleSort(originalList);
+            SortAlgorithms.BubbleSort(originalList);
             CollectionAssert.AreEqual(sortedList, originalList);
 
         }
@@ -24,8 +24,17 @@ namespace UnitTests
         public void TestInsertionSort()
         {
             originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
-            originalList = SortAlgorithms.insertionSort(originalList);
+            originalList = SortAlgorithms.InsertionSort(originalList);
             CollectionAssert.AreEqual(sortedList, originalList);
+
+        }
+
+        [TestMethod]
+        public void TestInsertionSortEmptyList()
+        {
+            originalList = new List<int>();
+            originalList = SortAlgorithms.InsertionSort(originalList);
+            CollectionAssert.AreEqual(new List<int>(), originalList);
 
         }
 
@@ -33,7 +42,16 @@ namespace UnitTests
         public void TestInsertionSortInPlace()
         {
             originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
-            SortAlgorithms.insertionSortInPlace(originalList);
+            SortAlgorithms.InsertionSortInPlace(originalList);
+            CollectionAssert.AreEqual(sortedList, originalList);
+
+        }
+
+        [TestMethod]
+        public void TestSelectionSort()
+        {
+            originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
+            SortAlgorithms.SelectionSort(originalList);
             CollectionAssert.AreEqual(sortedList, originalList);
 
         }

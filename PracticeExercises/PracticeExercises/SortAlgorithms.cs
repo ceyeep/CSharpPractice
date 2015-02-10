@@ -15,7 +15,7 @@ namespace PracticeExercises
         /// Bubble sort algorithm O(n^2)
         /// </summary>
         /// <param name="list"></param>
-        public static void bubbleSort(List<int> list)
+        public static void BubbleSort(List<int> list)
         {
             bool changed;
             do
@@ -39,7 +39,7 @@ namespace PracticeExercises
         /// Insertion sort O(n^2) space complexity O(n)
         /// </summary>
         /// <param name="originalList"></param>
-        public static List<int> insertionSort(List<int> originalList)
+        public static List<int> InsertionSort(List<int> originalList)
         {
             List<int> sortedList = new List<int>();
 
@@ -52,7 +52,7 @@ namespace PracticeExercises
 
                     for (int j = 0; j < sortedList.Count(); j++)
                     {
-                        if(originalList[i] < sortedList[j])
+                        if (originalList[i] < sortedList[j])
                         {
                             sortedList.Insert(j, originalList[i]);
                             break;
@@ -68,7 +68,7 @@ namespace PracticeExercises
         /// Insertion sort in place O(n^2)
         /// </summary>
         /// <param name="list"></param>
-        public static void insertionSortInPlace(List<int> list)
+        public static void InsertionSortInPlace(List<int> list)
         {
 
             if (list.Count() > 1)
@@ -85,6 +85,29 @@ namespace PracticeExercises
                         }
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Selection sort.
+        /// </summary>
+        /// <param name="list"></param>
+        public static void SelectionSort(List<int> list)
+        {
+            for (int i = 0; i < list.Count() - 1; i++)
+            {
+                int min = list[i];
+                int minPos = i;
+                for (int j = i + 1; j < list.Count(); j++)
+                {
+                    if (list[j] < min)
+                    {
+                        min = list[j];
+                        minPos = j;
+                    }
+                }
+                list.Insert(i, min);
+                list.RemoveAt(minPos + 1);
             }
         }
     }
