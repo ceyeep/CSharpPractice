@@ -55,5 +55,22 @@ namespace UnitTests
             CollectionAssert.AreEqual(sortedList, originalList);
 
         }
+
+        [TestMethod]
+        public void TestMergeSort()
+        {
+            originalList = new List<int>(new int[] { 5, 4, 3, 1, 2 });
+            originalList = SortAlgorithms.MergeSort(originalList);
+            CollectionAssert.AreEqual(sortedList, originalList);
+
+        }
+
+        [TestMethod]
+        public void TestMergeSortEmptyList()
+        {
+            originalList = new List<int>();
+            originalList = SortAlgorithms.InsertionSort(originalList);
+            CollectionAssert.AreEqual(new List<int>(), originalList);
+        }
     }
 }
