@@ -154,7 +154,7 @@ namespace PracticeExercises
                 }
             }
 
-            
+
             while (left.Count > 0)
             {
 
@@ -170,6 +170,67 @@ namespace PracticeExercises
             }
 
             return sortedList;
+        }
+
+        /// <summary>
+        /// Quick sort O(n log n)
+        /// </summary>
+        /// <param name="list"></param>
+        public static void QuickSort(int[] list, int first, int last)
+        {
+            if (last - first < 1)
+                return;
+            else
+            {
+                int pivotPosition = last;
+                int wallPosition = first;
+
+                while (pivotPosition > wallPosition)
+                {
+
+                    if (list[wallPosition] <= list[pivotPosition])
+                        wallPosition++;
+                    else
+                    {
+                        int wallValue = list[wallPosition];
+                        if(wallPosition < pivotPosition - 1)
+                            list[wallPosition] = list[pivotPosition - 1];
+                        list[pivotPosition - 1] = list[pivotPosition];
+                        list[pivotPosition] = wallValue;
+                        pivotPosition--;
+                    }
+
+                }
+                //check if sorted if not call recursive
+                if(IsSorted(list))
+                    return;
+                QuickSort(list,first, pivotPosition-1);
+                if (pivotPosition + 1 < list.Length)
+                    QuickSort(list,pivotPosition + 1, last);
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Check if list is sorted
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static bool IsSorted(int[] list)
+        {
+            bool sorted = true;
+            if (list.Length > 1)
+            {
+                for (int i = 0; i < list.Length - 1; i++)
+                {
+                    if (list[i] > list[i + 1])
+                    {
+                        sorted = false;
+                        break;
+                    }
+                }
+            }
+            return sorted;
         }
     }
 }

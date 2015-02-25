@@ -72,5 +72,14 @@ namespace UnitTests
             originalList = SortAlgorithms.InsertionSort(originalList);
             CollectionAssert.AreEqual(new List<int>(), originalList);
         }
+
+        [TestMethod]
+        public void TestQuickSort()
+        {
+            int[] originalList = new int[] { 5, 3, 4, 1, 2 };
+            SortAlgorithms.QuickSort(originalList,0,originalList.Length-1);
+            CollectionAssert.AreEqual(sortedList.ToArray(), originalList);
+
+        }
     }
 }
